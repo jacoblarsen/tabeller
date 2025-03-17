@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let num1, num2;
 
-    let realCount = 2;
+    let realCount = 10;
     let correctCount = realCount;
     let numberOfDiplomas = 0;
     let startTime = Date.now();
