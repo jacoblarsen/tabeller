@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let num1, num2;
 
-    let realCount = 10;
+    let realCount = 2;
     let correctCount = realCount;
     let numberOfDiplomas = 0;
     let startTime = Date.now();
@@ -26,11 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector("#dip"+numberOfDiplomas).style.display = "none";
                 document.querySelector("#game").style.display = "block";
         }, 8000);
+        
+        fetch(`php/send.php?numberOfDiplomas=${numberOfDiplomas}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log("Request successful:", data);
+            })
+            .catch(error => {
+                console.error("There was a problem with the fetch operation:", error);
+            });
+
         if(numberOfDiplomas === 3) {
             //Send mail til far
             numberOfDiplomas = 0; 
         }
-
     }
 
     function generateQuestion() {
