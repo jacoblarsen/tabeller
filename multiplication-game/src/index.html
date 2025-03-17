@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilmas Tabeller</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="game">
+        <h1>Wilmas Tabeller</h1>
+        <label for="table-select">Vælg en tabel:</label>
+        <select id="table-select">
+            <option value="all">Alle tabeller</option>
+            <option value="4">4-tabellen</option>
+            <option value="5">5-tabellen</option>
+            <option value="6">6-tabellen</option>
+            <option value="7">7-tabellen</option>
+            <option value="8">8-tabellen</option>
+            <option value="9">9-tabellen</option>
+            <option value="10">10-tabellen</option>
+        </select>
+        <p id="question"></p>
+        <input type="number" id="answer" placeholder="Skriv dit svar her">
+        <button id="submit">Tjek svar</button>
+        <p id="feedback"></p>
+        <div id="stats">
+            <p>Korrekte svar: <span id="correct-count">0</span></p>
+            <p>Brugt tid: <span id="time-spent">0</span> sekunder</p>
+        </div>
+    </div>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
