@@ -11,6 +11,11 @@ h1 {
     color: hotpink;
 }
 
+h2 {
+    text-align: center;
+    color: hotpink;
+}
+
 .container {
     max-width: 600px;
     margin: 0 auto;
