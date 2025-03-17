@@ -59,3 +59,28 @@ button:hover {
     color: hotpink;
     font-weight: bold;
 }
+
+.hidden {
+    display: none;
+}
+
+.diploma {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 60%;
+    margin: 50px auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border: 5px solid #ff99cc;
+}
+.diploma h1 {
+    font-size: 1.5em;
+    color: #ff1493;
+}
+.diploma p {
+    font-size: 1.3em;
+    margin: 20px 0;
+}
+.diploma .emoji {
+    font-size: 1.4em;
+}

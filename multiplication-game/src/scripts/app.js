@@ -8,12 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeSpentElement = document.getElementById("time-spent");
 
     let num1, num2;
-    let correctCount = 0;
+
+    let realCount = 10;
+    let correctCount = realCount;
+    let numberOfDiplomas = 0;
     let startTime = Date.now();
 
     function updateTimeSpent() {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
         timeSpentElement.textContent = elapsedTime;
+    }
+
+    function ShowDiploma(numberOfDiplomas) {
+        document.querySelector("#dip"+numberOfDiplomas).style.display = "block";
+        document.querySelector("#game").style.display = "none";
+        setTimeout(() => {
+                document.querySelector("#dip"+numberOfDiplomas).style.display = "none";
+                document.querySelector("#game").style.display = "block";
+        }, 8000);
+        if(numberOfDiplomas === 3) {
+            //Send mail til far
+            numberOfDiplomas = 0; 
+        }
+
     }
 
     function generateQuestion() {
@@ -34,12 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userAnswer === num1 * num2) {
             feedbackElement.textContent = "Korrekt! Godt klaret!";
             feedbackElement.classList.add("correct-feedback"); // Tilføj pink farve
-            correctCount++;
-            correctCountElement.textContent = correctCount;
+            correctCount--;
         } else {
             feedbackElement.textContent = `Forkert. Det rigtige svar er ${num1 * num2}.`;
             feedbackElement.classList.remove("correct-feedback"); // Fjern pink farve
+            correctCount = realCount;
         }
+        if(correctCount === 0) {
+            numberOfDiplomas++;
+            correctCount = realCount;
+            ShowDiploma(numberOfDiplomas);
+        }
+        correctCountElement.textContent = correctCount;
         answerElement.value = "";
         generateQuestion();
         answerElement.focus();
